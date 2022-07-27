@@ -1,0 +1,14 @@
+PATH=/command:"${PATH}"
+mkdir /tmp/services
+mkdir /tmp/service
+cp -a /etc/s6-overlay/s6-rc.d/nginx /tmp/services/nginx
+cp -a /etc/s6-overlay/s6-rc.d/user /tmp/services/user
+s6-svscan -t 0 /tmp/service &
+
+# Then:
+# ln -s ../services/nginx /tmp/service/
+## ln -s ../services/user /tmp/service/
+
+# s6-svscanctl -a /tmp/service
+# s6-svscanctl -a -n /tmp/service
+
