@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-usage() {
-    cat <<HEREDOC
-Usage:
-    bin/${0##*/} CONTAINER_ID
-HEREDOC
+container_id() {
+    docker ps | grep growing-relic | awk '{print $1}'
 }
 
-[[ -z "${1}" ]] && { usage; exit 1; }
+DOCKER="$(container_id)"
 
-DOCKER="${1}"
+[[ -z "${DOCKER}" ]] && {
+    echo "Docker container 'growing-relic' is not running." 1>&2
+    echo "Run 'make run' first." 1>&2
+    exit 1
+}
 
 files=(
     "etc/s6-overlay/s6-rc.d/nginx"
@@ -22,5 +23,10 @@ files=(
 )
 
 for f in "${files[@]}"; do
-    docker cp "${f}" "${DOCKER}:/${f}"
+    (set -x
+        docker cp "${f}" "${DOCKER}:/${f}"
+    )
 done
+
+echo
+echo "${#files[@]} files copied to docker container ${DOCKER}."
