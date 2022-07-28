@@ -25,7 +25,7 @@ make run
 
 3. Copy work files:
 ```
-build/copy-to-docker
+bin/copy-to-docker
 ```
 
 # Resources
