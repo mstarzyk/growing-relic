@@ -13,7 +13,6 @@ DOCKER="$(container_id)"
 }
 
 files=(
-    "root/01-make-app.sh"
     "root/s6init"
 )
 

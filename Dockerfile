@@ -80,3 +80,6 @@ RUN echo "alias fd='fdfind'" >> /root/.bash_aliases
 COPY etc/nginx/sites-available/ /etc/nginx/sites-available/
 COPY etc/s6-overlay/s6-rc.d/ /etc/s6-overlay/s6-rc.d/
 COPY srv/ /srv/
+COPY root/01-make-app.sh /root/
+RUN /root/01-make-app.sh
+

@@ -4,9 +4,11 @@ set -Eeuo pipefail
 
 cd /root
 
-rails new growing-relic --api --skip-active-record
+RAILS=/root/.rbenv/shims/rails
+
+"${RAILS}" new growing-relic --api --skip-active-record
 cd growing-relic
-rails g resource post
+"${RAILS}" g resource post
 
 cat <<HEREDOC >app/controllers/post_controller.rb
 class PostsController < ApplicationController
