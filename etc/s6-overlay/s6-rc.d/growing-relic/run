@@ -1,0 +1,5 @@
+#!/command/execlineb -P
+fdmove -c 2 1
+if { mkdir -p -m 0755 /srv/api.growing-relic.arpa.net/run }
+cd /root/growing-relic
+/root/.rbenv/shims/bundle exec puma -b unix:///srv/api.growing-relic.arpa.net/run/puma.sock

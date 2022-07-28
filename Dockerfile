@@ -12,7 +12,10 @@ RUN apt-get update \
         build-essential \
         ca-certificates \
         curl \
+        fd-find \
         git \
+        htop \
+        iputils-ping \
         libffi-dev \
         libgdbm-dev \
         libncurses5-dev \
@@ -20,9 +23,11 @@ RUN apt-get update \
         libssl-dev \
         libyaml-dev \
         nginx \
+        ripgrep \
         vim \
         xz-utils \
         zlib1g-dev
+
 
 # rbenv-installer downloaded from https://raw.githubusercontent.com/rbenv/rbenv-installer/b53c0f133e2eae0ddfceecd7bdfb9e4997280444/bin/rbenv-installer
 COPY sbin/* /sbin/
@@ -69,3 +74,9 @@ COPY --from=s6 /package /package
 COPY --from=s6 /command /command
 COPY --from=s6 /etc/s6-overlay /etc/s6-overlay
 COPY --from=s6 /init /init
+
+RUN echo "alias fd='fdfind'" >> /root/.bash_aliases
+
+COPY etc/nginx/sites-available/ /etc/nginx/sites-available/
+COPY etc/s6-overlay/s6-rc.d/ /etc/s6-overlay/s6-rc.d/
+COPY srv/ /srv/

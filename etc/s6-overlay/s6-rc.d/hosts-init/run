@@ -1,0 +1,4 @@
+#!/command/execlineb -P
+
+redirfd -a 1 /etc/hosts
+echo "127.0.1.1\tapi.growing-relic.arpa.net\n127.0.1.2\tfe.growing-relic.arpa.net"

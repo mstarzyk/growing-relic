@@ -9,4 +9,5 @@ build-docker:
 
 .PHONY: run
 run:
-	docker run --rm -it --network=host $(DOCKER_IMAGE) bash
+	docker run --rm -it $(DOCKER_IMAGE) bash
+	# docker run --rm -it --network=host $(DOCKER_IMAGE) bash

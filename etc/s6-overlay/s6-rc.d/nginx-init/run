@@ -1,0 +1,3 @@
+#!/command/execlineb -P
+ln -s ../sites-available/api.growing-relic.arpa.net /etc/nginx/sites-enabled/
+ln -s ../sites-available/fe.growing-relic.arpa.net /etc/nginx/sites-enabled/

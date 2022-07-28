@@ -13,12 +13,7 @@ DOCKER="$(container_id)"
 }
 
 files=(
-    "etc/s6-overlay/s6-rc.d/nginx"
-    "etc/s6-overlay/s6-rc.d/nginx/run"
-    "etc/s6-overlay/s6-rc.d/nginx/type"
-    "etc/s6-overlay/s6-rc.d/user/contents.d/nginx"
     "root/01-make-app.sh"
-    "root/05-run-puma.sh"
     "root/s6init"
 )
 
