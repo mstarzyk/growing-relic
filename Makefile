@@ -1,9 +1,13 @@
 DOCKER_IMAGE := growing-relic
 IP           := 127.0.0.1
-PORT_FE      := 9980
-PORT_API     := 9990
-PORTS        := $(PORT_FE) $(PORT_API)
 
+FE_DOMAIN    := fe.growing-relic.arpa.net
+FE_PORT      := 9990
+
+API_DOMAIN   := api.growing-relic.arpa.net
+API_PORT     := 9980
+
+PORTS        := $(FE_PORT) $(API_PORT)
 PORTS_ARG    := $(foreach p,$(PORTS),-p $(IP):$(p):$(p))
 
 
@@ -31,9 +35,9 @@ curl:
 	@echo "==================="
 	@echo " [FE] GET /posts"
 	@echo "==================="
-	curl -v http://$(IP):$(PORT_FE)/posts
+	curl -v http://$(IP):$(FE_PORT)/posts -H "Host: $(FE_DOMAIN):$(FE_PORT)"
 	@echo
 	@echo "==================="
 	@echo " [FE] POST /posts"
 	@echo "==================="
-	curl -v http://$(IP):$(PORT_FE)/posts -X POST --data-raw '{}'
+	curl -v http://$(IP):$(FE_PORT)/posts -H "Host: $(FE_DOMAIN):$(FE_PORT)" -X POST --data-raw '{}'
