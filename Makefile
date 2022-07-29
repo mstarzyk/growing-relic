@@ -40,4 +40,4 @@ curl:
 	@echo "==================="
 	@echo " [FE] POST /posts"
 	@echo "==================="
-	curl -v http://$(IP):$(FE_PORT)/posts -H "Host: $(FE_DOMAIN):$(FE_PORT)" -X POST --data-raw '{}'
+	curl -v http://$(IP):$(FE_PORT)/posts -H "Host: $(FE_DOMAIN):$(FE_PORT)" -X POST --data-raw '{}' -H "Content-Type: application/json"
