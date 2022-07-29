@@ -5,7 +5,7 @@ server {
 
     root /srv/fe.growing-relic.arpa.net/public;
 
-    location /td_users {
+    location /posts {
         proxy_pass http://api.growing-relic.arpa.net:9980;
    }
 }

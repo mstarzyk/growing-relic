@@ -1,0 +1,12 @@
+#!/command/execlineb -P
+
+define svcs ../services
+define svc  /tmp/service
+
+foreground { ln -s ${svcs}/growing-relic ${svc}/ }
+foreground { ln -s ${svcs}/hosts-init    ${svc}/ }
+foreground { ln -s ${svcs}/nginx         ${svc}/ }
+foreground { ln -s ${svcs}/nginx-init    ${svc}/ }
+foreground { ln -s ${svcs}/user          ${svc}/ }
+
+s6-svscanctl -a ${svc}

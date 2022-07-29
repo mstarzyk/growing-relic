@@ -18,14 +18,14 @@ See [xkcd-pass](https://github.com/redacted/XKCD-password-generator).
 ```
 make build-docker
 ```
-2. Run docker container:
+2. Run server in docker container:
 ```
-make run
+make server
 ```
 
-3. Copy work files:
+3. Run tests
 ```
-bin/copy-to-docker
+make test
 ```
 
 # Resources

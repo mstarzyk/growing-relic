@@ -13,7 +13,10 @@ DOCKER="$(container_id)"
 }
 
 files=(
-    "root/s6init"
+    "root/01-make-app"
+    "root/03-s6init"
+    "root/05-s6init"
+    "root/10-s6init"
 )
 
 for f in "${files[@]}"; do

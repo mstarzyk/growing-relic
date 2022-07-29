@@ -1,0 +1,16 @@
+#!/command/execlineb -P
+
+define rc   /etc/s6-overlay/s6-rc.d
+define svcs /tmp/services
+define svc  /tmp/service
+
+foreground { mkdir ${svcs} }
+foreground { mkdir ${svc}  }
+
+foreground { cp -a ${rc}/nginx         ${svcs}/ }
+foreground { cp -a ${rc}/growing-relic ${svcs}/ }
+foreground { cp -a ${rc}/nginx-init    ${svcs}/ }
+foreground { cp -a ${rc}/hosts-init    ${svcs}/ }
+foreground { cp -a ${rc}/user          ${svcs}/ }
+
+background { s6-svscan -t 0 ${svc} }
