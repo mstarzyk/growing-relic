@@ -25,7 +25,7 @@ make server
 
 3. Run tests
 ```
-make test
+make curl
 ```
 
 # Resources
