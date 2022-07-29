@@ -1,6 +1,6 @@
 #!/command/execlineb -P
 
 foreground {
-    s6-ln -fns ../sites-available/api.growing-relic.arpa.net /etc/nginx/sites-enabled/
+    s6-ln -fns ../sites-available/api.growing-relic.home.arpa /etc/nginx/sites-enabled/
 }
-s6-ln -fns ../sites-available/fe.growing-relic.arpa.net /etc/nginx/sites-enabled/
+s6-ln -fns ../sites-available/fe.growing-relic.home.arpa /etc/nginx/sites-enabled/

@@ -1,0 +1,11 @@
+server {
+    server_name fe.growing-relic.home.arpa;
+
+    listen 9990;
+
+    root /srv/fe.growing-relic.home.arpa/public;
+
+    location /posts {
+        proxy_pass http://api.growing-relic.home.arpa:9980;
+   }
+}

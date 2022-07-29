@@ -1,12 +1,12 @@
 upstream app {
-    server unix:///srv/api.growing-relic.arpa.net/run/puma.sock fail_timeout=0;
+    server unix:///srv/api.growing-relic.home.arpa/run/puma.sock fail_timeout=0;
 }
 
 server {
     listen 9980;
-    server_name api.growing-relic.arpa.net;
+    server_name api.growing-relic.home.arpa;
 
-    root /srv/api.growing-relic.arpa.net/public;
+    root /srv/api.growing-relic.home.arpa/public;
 
     try_files $uri/index.html $uri @app;
 

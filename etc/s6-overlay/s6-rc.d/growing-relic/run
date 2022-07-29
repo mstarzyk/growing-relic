@@ -1,5 +1,5 @@
 #!/command/execlineb -P
-define domain api.growing-relic.arpa.net
+define domain api.growing-relic.home.arpa
 define sockdir /srv/${domain}/run
 
 fdmove -c 2 1

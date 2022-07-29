@@ -1,10 +1,10 @@
 DOCKER_IMAGE := growing-relic
 IP           := 127.0.0.1
 
-FE_DOMAIN    := fe.growing-relic.arpa.net
+FE_DOMAIN    := fe.growing-relic.home.arpa
 FE_PORT      := 9990
 
-API_DOMAIN   := api.growing-relic.arpa.net
+API_DOMAIN   := api.growing-relic.home.arpa
 API_PORT     := 9980
 
 PORTS        := $(FE_PORT) $(API_PORT)
