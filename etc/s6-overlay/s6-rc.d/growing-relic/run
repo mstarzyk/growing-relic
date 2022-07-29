@@ -1,5 +1,9 @@
 #!/command/execlineb -P
+define domain api.growing-relic.arpa.net
+define sockdir /srv/${domain}/run
+
 fdmove -c 2 1
-if { mkdir -p -m 0755 /srv/api.growing-relic.arpa.net/run }
+if { mkdir -p -m 0755 ${sockdir} }
 cd /root/growing-relic
-/root/.rbenv/shims/bundle exec puma -b unix:///srv/api.growing-relic.arpa.net/run/puma.sock
+export RAILS_DEVELOPMENT_HOSTS ${domain}
+/root/.rbenv/shims/bundle exec puma -b unix://${sockdir}/puma.sock
