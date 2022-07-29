@@ -10,7 +10,7 @@ RAILS=/root/.rbenv/shims/rails
 cd growing-relic
 "${RAILS}" g resource post
 
-cat <<HEREDOC >app/controllers/post_controller.rb
+cat <<HEREDOC >app/controllers/posts_controller.rb
 class PostsController < ApplicationController
   # GET
   def index
