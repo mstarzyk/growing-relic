@@ -20,9 +20,9 @@ build-docker:
 	docker build -t $(DOCKER_IMAGE) --network=host .
 
 
-.PHONY: run
-run:
-	docker run --rm -it --entrypoint bash $(PORTS_ARG) $(DOCKER_IMAGE)
+.PHONY: shell
+shell:
+	docker run --rm -it --entrypoint=bash --network=host $(DOCKER_IMAGE)
 
 
 .PHONY: server
