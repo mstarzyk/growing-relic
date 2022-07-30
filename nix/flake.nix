@@ -14,42 +14,43 @@
 
           overlays = [
             (final: prev: {
-              growing-relic = final.callPackage ./pkgs/growing-relic {};
+              # growing-relic = final.callPackage ./pkgs/growing-relic {};
+              rails = final.callPackage ./pkgs/rails {};
             })
           ];
         };
       in rec {
         devShells = flake-utils.lib.flattenTree rec {
-          env = pkgs.mkShell {
+          bootstrap = pkgs.mkShell {
             packages = [
-              packages.growing-relic
-              packages.growing-relic.wrappedRuby
-            ];
-          };
-
-          env2 = pkgs.stdenv.mkDerivation {
-            name = "env2";
-            buildInputs = [
               pkgs.bundix
+              packages.rails
             ];
           };
 
-          default = env;
+          # env2 = pkgs.mkShell {
+          #   packages = [
+          #     packages.growing-relic
+          #     packages.growing-relic.wrappedRuby
+          #   ];
+          # };
+
+          default = bootstrap;
         };
 
         packages = flake-utils.lib.flattenTree rec {
           hello = pkgs.hello;
-          growing-relic = pkgs.growing-relic;
-          default = growing-relic;
+          rails = pkgs.rails;
+          default = rails;
         };
 
         # checks = TODO
 
-        apps = rec {
-          hello = flake-utils.lib.mkApp {
-            drv = packages.hello;
-          };
-          default = hello;
-        };
+        # apps = rec {
+        #   hello = flake-utils.lib.mkApp {
+        #     drv = packages.hello;
+        #   };
+        #   default = hello;
+        # };
       });
 }
