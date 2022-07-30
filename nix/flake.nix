@@ -14,7 +14,7 @@
 
           overlays = [
             (final: prev: {
-              # growing-relic = final.callPackage ./pkgs/growing-relic {};
+              growing-relic = final.callPackage ./app/growing-relic {};
               rails = final.callPackage ./pkgs/rails {};
             })
           ];
@@ -28,12 +28,12 @@
             ];
           };
 
-          # env2 = pkgs.mkShell {
-          #   packages = [
-          #     packages.growing-relic
-          #     packages.growing-relic.wrappedRuby
-          #   ];
-          # };
+          env2 = pkgs.mkShell {
+             packages = [
+               packages.growing-relic
+               # packages.growing-relic.wrappedRuby
+             ];
+          };
 
           default = bootstrap;
         };
@@ -41,7 +41,8 @@
         packages = flake-utils.lib.flattenTree rec {
           hello = pkgs.hello;
           rails = pkgs.rails;
-          default = rails;
+          growing-relic = pkgs.growing-relic.app;
+          default = growing-relic;
         };
 
         # checks = TODO

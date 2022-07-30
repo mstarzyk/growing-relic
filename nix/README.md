@@ -2,6 +2,7 @@
 
 - [Nixpkgs Manual: Developing with Ruby](https://nixos.org/manual/nixpkgs/stable/#developing-with-ruby)
 - [bundix](https://github.com/nix-community/bundix)
+- [Rails with Nix](https://github.com/emptyflask/rails-nix)
 
 
 # Generate new rails project
@@ -13,13 +14,6 @@ cd app/growing-relic
 rails new . --api --skip-bundle --skip-active-record
 bundler lock
 bundix
-```
-
-Now if you want to add this as a subdirectory of an existing git repo then
-remove `.git/`.
-
-Then continue:
-
-```
 git add .
 ```
+
